@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "ts-node": "ts-node"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
