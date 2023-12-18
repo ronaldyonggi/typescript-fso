@@ -1,3 +1,5 @@
+import { parseBmiArguments } from "./utils"
+
 const calculateBmi = ( height: number, weight: number): String => {
     const heightInM = height / 100
     const bmi = weight / (heightInM ** 2)
@@ -12,4 +14,14 @@ const calculateBmi = ( height: number, weight: number): String => {
     }
 }
 
-console.log(calculateBmi(180, 74))
+// console.log(calculateBmi(180, 74))
+try {
+    const {height, weight} = parseBmiArguments(process.argv)
+    console.log(calculateBmi(height, weight))
+} catch(error: unknown) {
+    let errorMessage = 'Error encountered.'
+    if (error instanceof Error) {
+        errorMessage += ' Error: ' + error.message
+    }
+    console.log(errorMessage)
+}
