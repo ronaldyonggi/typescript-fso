@@ -1,4 +1,4 @@
-import { parseBmiArguments } from "./utils";
+// import { parseBmiArguments } from "./utils";
 
 export const calculateBmi = ( height: number, weight: number): string => {
     const heightInM = height / 100;
@@ -15,13 +15,13 @@ export const calculateBmi = ( height: number, weight: number): string => {
 };
 
 // console.log(calculateBmi(180, 74))
-try {
-    const {height, weight} = parseBmiArguments(process.argv);
-    console.log(calculateBmi(height, weight));
-} catch(error: unknown) {
-    let errorMessage = 'Error encountered.';
-    if (error instanceof Error) {
-        errorMessage += ' Error: ' + error.message;
-    }
-    console.log(errorMessage);
-}
+// try {
+//     const {height, weight} = parseBmiArguments(process.argv);
+//     console.log(calculateBmi(height, weight));
+// } catch(error: unknown) {
+//     let errorMessage = 'Error encountered.';
+//     if (error instanceof Error) {
+//         errorMessage += ' Error: ' + error.message;
+//     }
+//     console.log(errorMessage);
+// }

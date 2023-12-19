@@ -1,4 +1,4 @@
-import { parseExerciseArguments } from "./utils";
+// import { parseExerciseArguments } from "./utils";
 
 interface Result {
     periodLength: number,
@@ -10,7 +10,7 @@ interface Result {
     average: number
 }
 
-const calculateExercises = (target: number, hours: number[]): Result => {
+export const calculateExercises = (target: number, hours: number[]): Result => {
     const periodLength = hours.length;
     const trainingDays = hours.reduce((acc, curr) => curr === 0 ? acc + 0 : acc + 1, 0);
     const average = (hours.reduce((acc, curr) => acc + curr, 0 )) / periodLength;
@@ -57,13 +57,13 @@ const calculateExercises = (target: number, hours: number[]): Result => {
 // const target = 2
 // console.log(calculateExercises(input, target))
 
-try {
-    const { target, hours} = parseExerciseArguments(process.argv);
-    console.log(calculateExercises(target, hours));
-} catch(error: unknown) {
-    let errorMessage = 'Error encountered.';
-    if (error instanceof Error) {
-        errorMessage += ' Error: ' + error.message;
-    }
-    console.log(errorMessage);
-}
+// try {
+//     const { target, hours} = parseExerciseArguments(process.argv);
+//     console.log(calculateExercises(target, hours));
+// } catch(error: unknown) {
+//     let errorMessage = 'Error encountered.';
+//     if (error instanceof Error) {
+//         errorMessage += ' Error: ' + error.message;
+//     }
+//     console.log(errorMessage);
+// }
