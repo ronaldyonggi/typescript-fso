@@ -1,4 +1,4 @@
-import { parseExerciseArguments } from "./utils"
+import { parseExerciseArguments } from "./utils";
 
 interface Result {
     periodLength: number,
@@ -11,32 +11,32 @@ interface Result {
 }
 
 const calculateExercises = (target: number, hours: number[]): Result => {
-    const periodLength = hours.length
-    const trainingDays = hours.reduce((acc, curr) => curr === 0 ? acc + 0 : acc + 1, 0)
-    const average = (hours.reduce((acc, curr) => acc + curr, 0 )) / periodLength
-    const difference = average - target
+    const periodLength = hours.length;
+    const trainingDays = hours.reduce((acc, curr) => curr === 0 ? acc + 0 : acc + 1, 0);
+    const average = (hours.reduce((acc, curr) => acc + curr, 0 )) / periodLength;
+    const difference = average - target;
 
-    let rating
+    let rating;
     if (difference > 3) {
-        rating = 3
+        rating = 3;
     } else if (difference > 1) {
-        rating = 2
+        rating = 2;
     } else {
-        rating = 1
+        rating = 1;
     }
 
-    const success = rating > 1
+    const success = rating > 1;
 
-    let ratingDescription
+    let ratingDescription;
     switch (rating) {
         case 3:
-            ratingDescription = 'Awesome! Keep it up!'
+            ratingDescription = 'Awesome! Keep it up!';
             break;
         case 2:
-            ratingDescription = 'Good enough'
+            ratingDescription = 'Good enough';
             break;
         default:
-            ratingDescription = "Hopeless"
+            ratingDescription = "Hopeless";
             break;
     }
 
@@ -48,9 +48,9 @@ const calculateExercises = (target: number, hours: number[]): Result => {
         ratingDescription,
         target,
         average
-    }
+    };
 
-}
+};
 
 
 // const input = [3, 0, 2, 4.5, 0, 3, 1]
@@ -58,12 +58,12 @@ const calculateExercises = (target: number, hours: number[]): Result => {
 // console.log(calculateExercises(input, target))
 
 try {
-    const { target, hours} = parseExerciseArguments(process.argv)
-    console.log(calculateExercises(target, hours))
+    const { target, hours} = parseExerciseArguments(process.argv);
+    console.log(calculateExercises(target, hours));
 } catch(error: unknown) {
-    let errorMessage = 'Error encountered.'
+    let errorMessage = 'Error encountered.';
     if (error instanceof Error) {
-        errorMessage += ' Error: ' + error.message
+        errorMessage += ' Error: ' + error.message;
     }
-    console.log(errorMessage)
+    console.log(errorMessage);
 }
